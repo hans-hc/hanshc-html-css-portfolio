@@ -1,0 +1,227 @@
+/* ENTIRE PAGE */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: "Roboto Mono", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: rgb(85,85,85);
+}
+
+/* TRANSITION */
+a, .btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAVIGATION */
+nav, .nav-links{
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 13vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.25rem;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+a:hover {
+  color:grey;
+  text-decoration: underline;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.logo a {
+  color: white; /* Ensure text is white */
+  text-decoration: none; /* Remove underline */
+}
+
+.logo a:hover {
+  color: white; /* Prevent hover color change */
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+
+/* HAMBURGER MENU */
+#hamburger-nav {
+  display:none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  background-color: white;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: right;
+  font-size: 1.25rem;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+/* TURN THE ICON INTO AN X WHEN OPEN */
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+.hamburger-icon-span:first-child {
+  transform: none;
+}
+.hamburger-icon-span:first-child {
+  opacity: 1;
+}
+.hamburger-icon-span:first-child {
+  transform: none;
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 4vh;
+  height: 10vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+#profile {
+  display: flex;
+  flex-direction: row; /* Default: side-by-side */
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 80vh;
+  flex-wrap: wrap; /* Ensures wrapping when needed */
+  text-align: left;
+}
+
+#profilepic {
+  max-width: 35%; /* Adjust size */
+  height: auto;
+  border-radius: 10px; /* Optional: rounded corners */
+}  
+
+.section_text {
+  align-self: center;
+  text-align: left;
+}
+
+.section_text p {
+  font-weight: 600;
+}
+
+.section_text_p1 {
+  color: rgb(85,85,85);
+  font-size: 2.25rem;
+  text-align: left; 
+}
+
+.section_text_p2 {
+  color: rgb(85,85,85);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.title {
+  color: black;
+  font-size: 3.25rem;
+  text-align: left;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: left;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+#footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(85, 85, 85);
+  font-size: 1rem;
+  margin-top: 2rem;
+}

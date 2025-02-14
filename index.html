@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hanshc.</title>
+  <link rel="icon" href="/assets/ModernHCLogo.png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+
+<body>
+  <nav id="desktop-nav">
+    <div class="logo">
+      <mark style="background-color: rgb(30,30,30); color: white;">
+        <a href="#home">&nbsp;hanshc.&nbsp;</a></mark>
+    </div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="#home">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <!--<li><a href="#contact">Contact</a></li>-->
+      </ul>
+    </div>
+
+  </nav>
+
+  <nav id="hamburger-nav">
+    <div class="logo">
+      <mark style="background-color: rgb(30,30,30); color: white;">
+        <a href="#home">&nbsp;hanshc.&nbsp;</a></mark>
+    </div>
+    <div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#home" onclick="toggleMenu()">About</a></li>
+          <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="work.html" onclick="toggleMenu()">Work</a></li>
+          <li><a href="journal.html" onclick="toggleMenu()">Journal</a></li>
+          <!--<li><a href="#contact" onclick="toggleMenu()">Contact</a></li>-->
+        </div>
+      </div>
+  </nav>
+
+  <section id="profile">
+    <img id="profilepic" src="assets/hans_side_circle.png"/>
+    <div class="section_text">
+      <p class="section_text_p1">hi. I'm Hansen.</p>
+      <h1 class="title">CS Student @ McMaster</h1>
+      <p class="section_text_p2">an avid computer scientist studying at McMaster university
+      </p>
+      <div id="socials-container">
+        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
+          onclick="window.open('https://www.linkedin.com/in/hansen-cheng-342320282/', '_blank')" />
+        <img src="./assets/github.png" alt="My Github profile" class="icon"
+          onclick="window.open('https://github.com/hans-hc', '_blank')" />
+        <img src="./assets/instagram.png" alt="My Instagram profile" class="icon"
+          onclick="window.open('https://www.instagram.com/hans.visuality/', '_blank')" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    
+  </section>
+  <script src="script.js"></script>
+</body>
+
+<footer id="footer">
+  <p>© 2025 Hansen Cheng. All rights reserved.</p>
+</footer>
+
+</html>

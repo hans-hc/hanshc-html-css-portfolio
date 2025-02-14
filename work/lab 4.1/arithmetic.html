@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<div id="goodbye">
+    <h1 style="display:center; visibility:hidden;"">Goodbye!</h1>
+</div>
+
+<script>
+
+    let var1 = Math.floor(Math.random() * 201);
+    var1 = var1 - 100;
+    let var2 = Math.floor(Math.random() * 201);
+    var2 = var2 - 100;
+
+    question(prompt(`${var1} + ${var2}`))
+
+    function question(answer) {
+        if (answer != null) {
+            if (answer == (var1 + var2)) {
+                response ="You got it right!, try another one?";
+            } else {
+                response = "Incorrect, try another one?";
+            }
+
+            if (confirm(response)) {
+                var1 = Math.floor(Math.random() * 201);
+                var1 = var1 - 100;
+                var2 = Math.floor(Math.random() * 201);
+                var2 = var2 - 100;
+
+                question(prompt(`${var1} + ${var2}`));
+                
+            } else {
+                alert("goodbye");
+            }
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Simple innerHTML Example</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number</h1>
+    <div id='target' style="color:red">Here is some text in a div.</div>
+</body>
+
+<script>
+    function changeDiv() {
+
+        var op1 = Math.floor(Math.random() * 200 - 100);
+        var op2 = Math.floor(Math.random() * 200 - 100);
+        guess = prompt("What is " + op1 + " + " + op2 + "?");
+
+        
+
+        if (guess = (op1 + op2)) {
+            document.getElementById("target").innerHTML = 'Correct';
+        } else {
+            document.getElementById("target").innerHTML = 'Incorrect';
+        }
+
+    }
+    changeDiv()
+</script>
+</html>

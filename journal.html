@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hanshc. | journal</title>
+  <link rel="icon" href="ModernHCLogo.png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="table.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+
+<body>
+  <nav id="desktop-nav">
+    <div class="logo">
+      <mark style="background-color: rgb(30,30,30); color: white;">
+        <a href="index.html">&nbsp;hanshc.&nbsp;</a></mark>
+    </div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <!--<li><a href="#contact">Contact</a></li>-->
+      </ul>
+    </div>
+
+  </nav>
+
+  <nav id="hamburger-nav">
+    <div class="logo">
+      <mark style="background-color: rgb(30,30,30); color: white;">
+        <a href="index.html">&nbsp;hanshc.&nbsp;</a></mark>
+    </div>
+    <div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="index.html" onclick="toggleMenu()">About</a></li>
+          <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="work.html" onclick="toggleMenu()">Work</a></li>
+          <li><a href="journal.html" onclick="toggleMenu()">Journal</a></li>
+          <!--<li><a href="#contact" onclick="toggleMenu()">Contact</a></li>-->
+        </div>
+      </div>
+  </nav>
+
+  <h2>JOURNAL DATABASE</h2>
+
+  <table>
+    <tr>
+      <th>Data Entry ["WEEK"]</th>
+      <th>Date</th>
+      <th>Operator</th>
+    </tr>
+    <tr>
+      <td><a href="journal/week4.html" target="_blank">WEEK-[4].html</a></td>
+      <td>27/01/2025</td>
+      <td>Hansen Cheng</td>
+    </tr>
+    <tr>
+      <td><a href="journal/week3.html" target="_blank">WEEK-[3].html</a></td>
+      <td>20/01/2025</td>
+      <td>Hansen Cheng</td>
+    </tr>
+    <tr>
+      <td><a href="journal/week2.html" target="_blank">WEEK-[2].html</a></td>
+      <td>13/01/2025</td>
+      <td>Hansen Cheng</td>
+    </tr>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
