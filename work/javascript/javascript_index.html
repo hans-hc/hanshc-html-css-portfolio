@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hanshc. | TyperTyper</title>
     <link rel="stylesheet" href="jsstyle.css">
 </head>
+
 <body>
     <!-- Welcome Screen -->
     <div id="welcome-screen" class="container">
@@ -19,10 +21,11 @@
         <button id="start-game">Start</button>
     </div>
 
-    <!-- Main Typing Test (Initially Hidden) -->
+    <!-- Main Typing Test -->
     <div id="game-screen" class="container hidden">
         <h1 id="user-display">TyperTyper!</h1>
         <p id="instructions">Type the selection of words below as fast as you can!</p>
+        <p id="round-indicator">Round _ of 3</p>
 
         <div id="text-container">
             <p id="text-to-type"></p>
@@ -35,16 +38,19 @@
             <p>Words per minute: <span id="wpm">0</span></p>
         </div>
 
+        <p id="result-message"></p> <!-- Result (hidden ) -->
+
+        <!-- Buttons -->
+        <button id="next-round" class="hidden">Next Round</button>
         <button id="restart">Restart</button>
         <button id="help">Help</button>
-        
+
         <div id="help-text" class="hidden">
-            <p>Type the given text as fast as you can. Your speed will be measured in words per minute (WPM). The text must match perfectly. Click restart to try again.</p>
+            <p>Type the given text as fast as you can. There are 3 rounds, and your speed will be measured in words per minute (WPM). The text
+                must match perfectly. Click restart to try again from round one. After all rounds are completed, your final WPM score (The average of all rounds) will be displayed.</p>
         </div>
-
-        <p id="result-message"></p>
     </div>
-
     <script src="typing.js"></script>
 </body>
+
 </html>

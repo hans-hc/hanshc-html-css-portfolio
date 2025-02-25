@@ -1,33 +1,32 @@
-/* ENTIRE PAGE */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 * {
     margin: 0.5rem;
     padding: 0.5rem;
-  }
+}
 
-#welcome-screen h1{
+#welcome-screen h1 {
     font-size: 3rem;
     padding-top: 18.75rem;
 }
 
 h1 {
     font-size: 3rem;
-    padding-top: 3rem;
+    padding-top: 1.75rem;
 }
 
 body {
     font-family: "Roboto Mono", serif;
     text-align: left;
     margin: 0.5rem;
-    background: rgb(255, 251, 245);
+    background: rgb(255, 255, 255);
     display: flex;
 }
 
 .container {
     max-width: 80rem;
     margin: auto;
-    background: rgb(255, 251, 245);
+    background: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
 }
@@ -53,8 +52,7 @@ body {
     color: rgb(0, 0, 0);
     border-radius: 5px;
     margin-bottom: 10px;
-    box-sizing: border-box; /* Ensures padding doesn't increase width */
-
+    box-sizing: border-box;
 }
 
 textarea {
@@ -65,7 +63,7 @@ textarea {
     padding: 1.25rem;
     border-radius: 5px;
     resize: none;
-    box-sizing: border-box; /* Ensures padding doesn't increase width */
+    box-sizing: border-box;
 }
 
 #stats {
@@ -84,7 +82,7 @@ button {
     cursor: pointer;
 }
 
-#restart {
+#next-round {
     background-color: hsl(0, 0%, 22%);
     color: white;
     border: 0;
@@ -95,10 +93,22 @@ button {
     color: rgb(53, 169, 53);
 }
 
+#stats {
+    font-size: 1.25rem;
+    margin-top: -1rem;
+}
+
 #help-text {
     font-size: 1.25rem;
 }
 
 .hidden {
     display: none;
-}   
+}
+
+#round-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: hsl(0, 0%, 0%);
+    text-align: left;
+}
