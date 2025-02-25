@@ -1,0 +1,104 @@
+/* ENTIRE PAGE */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+
+#welcome-screen h1{
+    font-size: 3rem;
+    padding-top: 18.75rem;
+}
+
+h1 {
+    font-size: 3rem;
+    padding-top: 3rem;
+}
+
+body {
+    font-family: "Roboto Mono", serif;
+    text-align: left;
+    margin: 0.5rem;
+    background: rgb(255, 251, 245);
+    display: flex;
+}
+
+.container {
+    max-width: 80rem;
+    margin: auto;
+    background: rgb(255, 251, 245);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#welcome-screen {
+    font-size: 1.5rem;
+}
+
+#username {
+    font-family: "Roboto Mono", serif;
+}
+
+#instructions {
+    font-size: 1.25rem;
+    padding-bottom: 2rem;
+    color: hsl(0, 0%, 22%);
+}
+
+#text-container {
+    width: 100%;
+    font-size: 1.25rem;
+    background: hsl(0, 0%, 83%);
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+
+}
+
+textarea {
+    font-family: "Roboto Mono", serif;
+    width: 100%;
+    height: 100px;
+    font-size: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 5px;
+    resize: none;
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+#stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    font-family: "Roboto Mono", serif;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+#restart {
+    background-color: hsl(0, 0%, 22%);
+    color: white;
+    border: 0;
+}
+
+#result-message {
+    font-size: 1.5rem;
+    color: rgb(53, 169, 53);
+}
+
+#help-text {
+    font-size: 1.25rem;
+}
+
+.hidden {
+    display: none;
+}   
