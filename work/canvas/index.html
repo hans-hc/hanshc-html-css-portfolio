@@ -1,0 +1,55 @@
+<!--
+Andrew Whitehead (Student Number: 400581822)
+Hansen Cheng (Student Number: 400579195)
+Feb 27, 2025
+HTML webpage structured for the use of a simple canvas drawing program
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas Assignment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="CSS/canvas.css">
+    <script src="JS/canvas.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="canvas">
+            <canvas id='animationCanvas' width='800' height='600' style='background-color:rgb(255, 255, 255);'></canvas>
+        </div>
+        <div id="nav">
+            <div id="dropdown">
+                <p id="menusquare" class="shape">Square</p>
+                <p id="menucircle" class="shape">Circle</p>
+                <p id="menutriangle" class="shape">Triangle</p>
+                <p id="menurectangle" class="shape">Rectangle</p>
+            </div>
+
+            <div id="controls">
+                <div class="control-group">
+                    <label for="color">Color</label>
+                    <input type="color" id="color">
+                </div>
+                <div class="control-group">
+                    <label for="length">Length</label>
+                    <input type="number" min="1" max="200" value="20" id="length">
+                </div>
+                <div class="control-group">
+                    <label for="thickness">Thickness</label>
+                    <input type="number" min="1" max="20" value="1" id="thickness">
+                </div>
+            </div>
+
+            <div id="bottom-buttons">
+                <input type="button" id="place" value="Place Mode">
+                <input type="button" id="clear" value="Clear Canvas">
+                <input type="button" id="undo" value="Undo">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
