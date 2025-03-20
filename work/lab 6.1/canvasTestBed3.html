@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas Test Bed</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+        #testCanvas {
+            background-color: silver;
+            margin: 30px;
+        }
+        body {
+            text-align: center;
+            color: silver;
+            background-color: rgb(53, 66, 29);
+        }
+    </style>
+    <script>
+        let canvas, ctx;
+        let houseX = 20;
+        let lastHouseY = 250;
+        let lastCarX = null;
+        let lastCarY = null;
+        
+        window.addEventListener("load", function () {
+            canvas = document.getElementById("testCanvas");
+            ctx = canvas.getContext("2d");
+            
+            document.getElementById("drawHouse").addEventListener("click", drawHouse);
+            document.getElementById("drawCar").addEventListener("click", drawCar);
+            document.getElementById("drawStar").addEventListener("click", drawStar);
+        });
+
+        function drawHouse() {
+            ctx.beginPath();
+            ctx.rect(houseX, lastHouseY, 50, 50);
+            ctx.moveTo(houseX, lastHouseY);
+            ctx.lineTo(houseX + 25, lastHouseY - 30);
+            ctx.lineTo(houseX + 50, lastHouseY);
+            ctx.closePath();
+            ctx.stroke();
+            
+            lastCarX = houseX + 10;
+            lastCarY = lastHouseY + 60;
+            houseX += 70;
+        }
+
+        function drawCar() {
+            if (lastCarX !== null && lastCarY !== null) {
+                ctx.beginPath();
+                ctx.rect(lastCarX, lastCarY, 40, 20);
+                ctx.arc(lastCarX + 5, lastCarY + 20, 5, 0, Math.PI * 2);
+                ctx.arc(lastCarX + 35, lastCarY + 20, 5, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+
+        function drawStar() {
+            let x = Math.random() * canvas.width;
+            let y = Math.random() * (lastHouseY - 50);
+            let colors = ["yellow", "white", "lightblue", "gold"];
+            let color = colors[Math.floor(Math.random() * colors.length)];
+            
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            for (let i = 0; i < 5; i++) {
+                let angle = i * (Math.PI * 2) / 5 - Math.PI / 2;
+                let xPoint = x + Math.cos(angle) * 8;
+                let yPoint = y + Math.sin(angle) * 8;
+                ctx.lineTo(xPoint, yPoint);
+            }
+            ctx.closePath();
+            ctx.fill();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Canvas Test Bed 4</h1>
+    <canvas id="testCanvas" width="400" height="400"></canvas>
+    <br>
+    <input type="button" id="drawHouse" value="Draw House">
+    <input type="button" id="drawCar" value="Draw Car">
+    <input type="button" id="drawStar" value="Draw Star">
+</body>
+
+</html>

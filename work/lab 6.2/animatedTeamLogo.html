@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+Team Logo Animation Idea
+Andrew Whitehead
+February 26, 2025
+-->
+<html>
+
+<head>
+    <title>Team Logo Animation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script type='text/javascript'>
+
+        // Following best practices, it's all inside a window load event
+        window.addEventListener("load", function (event) {
+            // global variables (global to this function, that is)
+            // to control the animation
+            let line1 = {
+                x: 200, y: 0,
+                xSpeed: 0, ySpeed: 1,
+                red: 0, green: 255, blue: 0,
+            };
+
+            let line2 = {
+                x: 850, y: 0,
+                xSpeed: 0, ySpeed: 1,
+                red: 0, green: 255, blue: 0,
+            };
+
+            let line3 = {
+                x: 1000, y: 0,
+                xSpeed: -2, ySpeed: 1,
+                red: 255, green: 255, blue: 0,
+            };
+
+            let line4 = {
+                x: 1100, y: 0,
+                xSpeed: -2, ySpeed: 1,
+                red: 255, green: 255, blue: 0,
+            };
+
+            let ball1 = {
+                x: 0, y: 75,
+                xSpeed: 2, ySpeed: 0,
+                red: 255, green: 0, blue: 0,
+                radius: 30,
+            };
+
+            let ball2 = {
+                x: 0, y: 525,
+                xSpeed: 2, ySpeed: 0,
+                red: 0, green: 0, blue: 255,
+                radius: 30,
+            };
+
+            // Load team logo
+            let fiftyLogo = new Image();
+            fiftyLogo.src = "5050small.jpg";
+
+            let fiftyReady = false;
+            fiftyLogo.addEventListener("load", function(event) {
+                fiftyReady = true;
+            });
+
+            let timerId;            // holds the id of the timer
+
+            let c = document.getElementById("animationCanvas");
+            let ctx = c.getContext("2d");
+
+            // starts the animation
+            function startAnimation() {
+                // 16  milliseconds works out to 62.5 frames per second.
+                // for games, 60 frames per second is standard
+                timerId = setInterval(updateAnimation, 16);
+            }
+
+            // stops the animation
+            function stopAnimation() {
+                clearTimeout(timerId);
+            }
+
+            // This function is called every 16 milliseconds
+            function updateAnimation() {
+                if (fiftyReady == true){
+                    // 1. Update the position of the fiftys and balls
+                    line1.y = line1.y + line1.ySpeed;
+                    line2.y = line2.y + line2.ySpeed;
+                    line3.x = line3.x + line3.xSpeed;
+                    line3.y = line3.y + line3.ySpeed;
+                    line4.x = line4.x + line4.xSpeed;
+                    line4.y = line4.y + line4.ySpeed;
+                    ball1.x = ball1.x + ball1.xSpeed;
+                    ball2.x = ball2.x + ball2.xSpeed;
+
+                    // 2. Clear the canvas
+                    ctx.clearRect(0, 0, c.width, c.height);
+
+                    // 3. Draw the frame using information stored in fiftys and balls
+                    ctx.drawImage(fiftyLogo, 350, 150, 300, 300);
+
+                    ctx.strokeStyle = "rgb(" + line1.red + "," + line1.green + "," + line1.blue + ")";
+                    ctx.lineWidth = 10;
+                    ctx.beginPath();
+                    ctx.moveTo(line1.x + 5, line1.y);
+                    ctx.lineTo(line1.x - 50, line1.y);
+                    ctx.lineTo(line1.x - 50, line1.y + 50);
+                    ctx.lineTo(line1.x, line1.y + 50);
+                    ctx.lineTo(line1.x, line1.y + 100);
+                    ctx.lineTo(line1.x - 55, line1.y + 100);
+                    ctx.stroke();
+
+                    ctx.strokeStyle = "rgb(" + line2.red + "," + line2.green + "," + line2.blue + ")";
+                    ctx.lineWidth = 10;
+                    ctx.beginPath();
+                    ctx.moveTo(line2.x, line2.y);
+                    ctx.lineTo(line2.x - 50, line2.y);
+                    ctx.lineTo(line2.x - 50, line2.y + 100);
+                    ctx.lineTo(line2.x, line2.y + 100);
+                    ctx.closePath();
+                    ctx.stroke();
+
+                    ctx.strokeStyle = "rgb(" + line3.red + "," + line3.green + "," + line3.blue + ")";
+                    ctx.lineWidth = 10;
+                    ctx.beginPath();
+                    ctx.moveTo(line3.x + 5, line3.y);
+                    ctx.lineTo(line3.x - 50, line3.y);
+                    ctx.lineTo(line3.x - 50, line3.y + 50);
+                    ctx.lineTo(line3.x, line3.y + 50);
+                    ctx.lineTo(line3.x, line3.y + 100);
+                    ctx.lineTo(line3.x - 55, line3.y + 100);
+                    ctx.stroke();
+
+                    ctx.strokeStyle = "rgb(" + line4.red + "," + line4.green + "," + line4.blue + ")";
+                    ctx.lineWidth = 10;
+                    ctx.beginPath();
+                    ctx.moveTo(line4.x, line4.y);
+                    ctx.lineTo(line4.x - 50, line4.y);
+                    ctx.lineTo(line4.x - 50, line4.y + 100);
+                    ctx.lineTo(line4.x, line4.y + 100);
+                    ctx.closePath();
+                    ctx.stroke();
+
+                    ctx.fillStyle = "rgb(" + ball1.red + "," + ball1.green + "," + ball1.blue + ")";
+                    ctx.beginPath();
+                    ctx.arc(ball1.x, ball1.y, ball1.radius, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    ctx.fillStyle = "rgb(" + ball2.red + "," + ball2.green + "," + ball2.blue + ")";
+                    ctx.beginPath();
+                    ctx.arc(ball2.x, ball2.y, ball2.radius, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // 4. Collision detection: stop the animation if the fifty is at the edge of the canvas
+                    if (line1.y - 10 >= c.height) {
+                        stopAnimation();
+                    }
+                }
+            }
+
+            // Start things up!
+            startAnimation();
+        });
+    </script>
+</head>
+
+<body style='text-align:center;'>
+    <canvas id='animationCanvas' width='1000' height='600' style='background-color:black;'></canvas>
+</body>
+
+</html>
