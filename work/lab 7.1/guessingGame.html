@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width">
+    <title>Guess the Integer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+        body {
+            font-family: "Roboto Mono", serif;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        #guess {
+            font-size: 1rem;
+        }
+        
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            class GuessingGame {
+                constructor() {
+                    this.a = Math.floor(Math.random() * 100 + 1);
+                    this.c = 9;
+                }
+                guess(num) {
+                    let result = document.getElementById("result");
+
+                    if (this.c > 0) {
+                        if (num == this.a) {
+                            result.innerHTML = "Correct! Great job! A new integer has been created";
+                            user = new GuessingGame();
+                            this.c = 9;
+                        }
+                        else if (num > this.a) {
+                            result.innerHTML = "Your guess was too high";
+                            this.c -= 1;
+                        }
+                        else {
+                            result.innerHTML = "Your guess was too low";
+                            this.c -= 1;
+                        }
+                    }
+                    else {
+                        result.innerHTML = "Incorrect. You have run out of guesses. Please try again!";
+                        this.c = 9;
+                    }
+                }
+            }
+
+            let olduser;
+            let user;
+
+            if (localStorage.game) {
+                olduser = JSON.parse(localStorage.game);
+                user = new GuessingGame();
+                user.a = olduser.a;
+                user.c = olduser.c;
+            }
+            else {
+                user = new GuessingGame;
+            }
+
+            function check(event) {
+                let guess = document.getElementById("guess").value;
+                guess = parseInt(guess);
+                user.guess(guess);
+                localStorage.game = JSON.stringify(user);
+            }
+
+            document.getElementById("submit").addEventListener("click", check);
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="container"">
+        <h1>Integer Gambler</h1>
+        <h2>Gamble your guess!</h2><br>
+        <p>Enter an integer between 0 and 100</p>
+        <input id="guess" type="number" placeholder="Ex: 69" min="0"><br><br>
+        <input id="submit" type="submit" value="Guess!"><br>
+        <h2 id="result"></h2>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<!-- START  -->
+<html>
+  <head>
+    <title>Canvas Animation with 500 Balls</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script>
+      class Ball {
+        constructor(x, y, xSpeed, ySpeed) {
+          this.x = x;
+          this.y = y;
+          this.xSpeed = xSpeed;
+          this.ySpeed = ySpeed;
+          this.red = 255;
+          this.green = 0;
+          this.blue = 0;
+          this.radius = 5;
+          this.gravity = 0.1;
+          this.bounce = 0.8;
+        }
+        
+        setColor(red, green, blue) {
+          this.red = red;
+          this.green = green;
+          this.blue = blue;
+        }
+        
+        step() {
+          this.x += this.xSpeed;
+          this.y += this.ySpeed;
+          this.ySpeed += this.gravity;
+        }
+        
+        checkBounds(width, height) {
+          if (this.x >= width - this.radius) {
+            this.x = width - this.radius;
+            this.xSpeed = -this.xSpeed * this.bounce;
+          } else if (this.x <= this.radius) {
+            this.x = this.radius;
+            this.xSpeed = -this.xSpeed * this.bounce;
+          }
+          
+          if (this.y >= height - this.radius) {
+            this.y = height - this.radius;
+            this.ySpeed = -this.ySpeed * this.bounce;
+          } else if (this.y <= this.radius) {
+            this.y = this.radius;
+            this.ySpeed = -this.ySpeed * this.bounce;
+          }
+          
+          return (this.x >= width - this.radius || this.x <= this.radius ||
+                  this.y >= height - this.radius || this.y <= this.radius);
+        }
+        
+        draw(ctx) {
+          ctx.fillStyle = "rgb(" + this.red + "," + this.green + "," + this.blue + ")";
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      window.addEventListener("load", function (event) {
+        const BALL_COUNT = 500;
+        let balls = [];
+        let timerId;
+        let c = document.getElementById("animationCanvas");
+        let ctx = c.getContext("2d");
+        
+        function createBalls() {
+          const centerX = c.width / 2;
+          const centerY = c.height / 2;
+          
+          for (let i = 0; i < BALL_COUNT; i++) {
+            const x = centerX + (Math.random() * 100 - 50);
+            const y = centerY + (Math.random() * 100 - 50);
+            
+            const xSpeed = Math.random() * 10 - 5;
+            const ySpeed = Math.random() * 10 - 5;
+            
+            const ball = new Ball(x, y, xSpeed, ySpeed);
+            
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            ball.setColor(red, green, blue);
+            
+            ball.radius = Math.random() * 6 + 2;
+            
+            balls.push(ball);
+          }
+        }
+        
+        function startAnimation() {
+          createBalls();
+          timerId = setInterval(updateAnimation, 16);
+        }
+        
+        function stopAnimation() {
+          clearTimeout(timerId);
+        }
+        
+        function updateAnimation() {
+          ctx.clearRect(0, 0, c.width, c.height);
+          
+          
+          for (let ball of balls) {
+            ball.step();
+            if (ball.checkBounds(c.width, c.height)) hitEdge = true;
+            ball.draw(ctx);
+          }
+        }
+        
+        // if (hitEdge) stopAnimation();       
+
+        startAnimation();
+      });
+    </script>
+  </head>
+  <body style='text-align:center;'>
+    <canvas id='animationCanvas' width='768' height='400' style='background-color:black;'></canvas>
+  </body>
+</html>
