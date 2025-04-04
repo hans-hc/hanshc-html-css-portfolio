@@ -1,0 +1,56 @@
+/*
+* Hansen Cheng
+* March 30 2025
+*/
+/* Hunt the Wumpus CSS. Sam Scott, McMaster University, 2025. */
+body {
+    background-color: saddlebrown;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    color: antiquewhite;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+table {
+    width: 100%;               
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;       
+}
+
+th, td{
+    font-size: 24px;
+    text-align: left;        
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    padding: 30px;
+    margin: 5px;
+    background-color: burlywood;
+}
+
+td:hover {
+    background-color: crimson;
+}
+
+#container {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 4px;
+}
+
